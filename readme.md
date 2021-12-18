@@ -50,6 +50,76 @@ We run our application based on our image (whether we are on production or in de
 
 ```
 
+**Docker Structure**
+
+```
+
+(a)Docker File->Instructions needed to build our Image
+
+
+(b)Docker Image
+
+
+(c)Docker Container.
+
+
+Explaining FIle
+
+(a)FROM node:alpine
+
+(b)WORKDIR /usr/app
+
+(c)COPY . .
+
+(d)RUN npm install
+
+(e)CMD [ "npm","run","start" ]
+
+
+Explanation
+
+(a)I want to go and build my image based on Node JS.I can get various images for various programming Languages in docker hub.
+
+When we specify alpine we get the bare minimum of the image in a certain programming language.
+
+We do not get any extra configuration.
+
+ (b) and (c)
+
+ WORKDIR /usr/app
+
+ COPY . .
+
+ Copies our project and other files in from working directory to the container.
+
+ in short i am putting my projects into the working directory where there are no collisions whatsoever.
+
+
+(d)Installs the npm packages into the container.
+
+ Remember the node modules is always git ignored.
+
+ In my container which is completely isolated from my local environment i must npm install.
+
+
+ .dockerignore-These are all files and folders that we do not want copied into our image.
+
+  as a rule of thumb node modules should always be dockerignore, so that your container runs its own node modules.
+
+(e)Whenever we Spin up a container from Our Image,It is going to run our application.
+
+  CMD [ "npm","run","start" ]
+
+
+```
+
+**How do i Build an Image**
+
+```
+
+
+```
+
 **Notes By**
 
 ```
